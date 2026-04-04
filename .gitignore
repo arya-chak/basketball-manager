@@ -1,0 +1,43 @@
+# Godot 4 generated files
+.godot/
+*.uid
+
+# Export / build output
+exports/
+builds/
+*.apk
+*.aab
+*.ipa
+*.exe
+*.dmg
+*.pkg
+
+# SQLite database files (runtime data, not source)
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# macOS system files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# VSCode (optional, remove if you want to commit your editor config)
+.vscode/
+
+# JetBrains / Rider
+.idea/
+
+# Node (if you ever run scripts like the doc generator)
+node_modules/
+
+# Logs
+*.log
