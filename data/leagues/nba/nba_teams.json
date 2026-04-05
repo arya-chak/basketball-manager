@@ -1,0 +1,591 @@
+{
+    "league_id": "nba",
+
+    "conferences": {
+        "East": {
+            "divisions": ["Atlantic", "Central", "Southeast"]
+        },
+        "West": {
+            "divisions": ["Northwest", "Pacific", "Southwest"]
+        }
+    },
+
+    "teams": [
+
+        {
+            "id": "BOS",
+            "full_name": "Boston Celtics",
+            "city": "Boston",
+            "abbreviation": "BOS",
+            "conference": "East",
+            "division": "Atlantic",
+            "arena": "TD Garden",
+            "prestige": 97,
+            "market_size": "large",
+            "owner": {
+                "name": "Wyc Grousbeck",
+                "tax_willingness": 0.75,
+                "spending_aggressiveness": 0.75,
+                "patience": 0.55,
+                "ambition": 0.85,
+                "will_tank": false
+            }
+        },
+        {
+            "id": "BKN",
+            "full_name": "Brooklyn Nets",
+            "city": "Brooklyn",
+            "abbreviation": "BKN",
+            "conference": "East",
+            "division": "Atlantic",
+            "arena": "Barclays Center",
+            "prestige": 72,
+            "market_size": "large",
+            "owner": {
+                "name": "Joe Tsai",
+                "tax_willingness": 0.95,
+                "spending_aggressiveness": 0.90,
+                "patience": 0.30,
+                "ambition": 0.90,
+                "will_tank": false
+            }
+        },
+        {
+            "id": "NYK",
+            "full_name": "New York Knicks",
+            "city": "New York",
+            "abbreviation": "NYK",
+            "conference": "East",
+            "division": "Atlantic",
+            "arena": "Madison Square Garden",
+            "prestige": 85,
+            "market_size": "large",
+            "owner": {
+                "name": "James Dolan",
+                "tax_willingness": 0.80,
+                "spending_aggressiveness": 0.80,
+                "patience": 0.35,
+                "ambition": 0.95,
+                "will_tank": false
+            }
+        },
+        {
+            "id": "PHI",
+            "full_name": "Philadelphia 76ers",
+            "city": "Philadelphia",
+            "abbreviation": "PHI",
+            "conference": "East",
+            "division": "Atlantic",
+            "arena": "Wells Fargo Center",
+            "prestige": 80,
+            "market_size": "large",
+            "owner": {
+                "name": "Josh Harris",
+                "tax_willingness": 0.70,
+                "spending_aggressiveness": 0.70,
+                "patience": 0.50,
+                "ambition": 0.85,
+                "will_tank": true
+            }
+        },
+        {
+            "id": "TOR",
+            "full_name": "Toronto Raptors",
+            "city": "Toronto",
+            "abbreviation": "TOR",
+            "conference": "East",
+            "division": "Atlantic",
+            "arena": "Scotiabank Arena",
+            "prestige": 75,
+            "market_size": "large",
+            "owner": {
+                "name": "Larry Tanenbaum",
+                "tax_willingness": 0.65,
+                "spending_aggressiveness": 0.65,
+                "patience": 0.65,
+                "ambition": 0.70,
+                "will_tank": false
+            }
+        },
+
+        {
+            "id": "CHI",
+            "full_name": "Chicago Bulls",
+            "city": "Chicago",
+            "abbreviation": "CHI",
+            "conference": "East",
+            "division": "Central",
+            "arena": "United Center",
+            "prestige": 88,
+            "market_size": "large",
+            "owner": {
+                "name": "Jerry Reinsdorf",
+                "tax_willingness": 0.45,
+                "spending_aggressiveness": 0.50,
+                "patience": 0.70,
+                "ambition": 0.65,
+                "will_tank": false
+            }
+        },
+        {
+            "id": "CLE",
+            "full_name": "Cleveland Cavaliers",
+            "city": "Cleveland",
+            "abbreviation": "CLE",
+            "conference": "East",
+            "division": "Central",
+            "arena": "Rocket Mortgage FieldHouse",
+            "prestige": 70,
+            "market_size": "medium",
+            "owner": {
+                "name": "Dan Gilbert",
+                "tax_willingness": 0.70,
+                "spending_aggressiveness": 0.70,
+                "patience": 0.55,
+                "ambition": 0.80,
+                "will_tank": false
+            }
+        },
+        {
+            "id": "DET",
+            "full_name": "Detroit Pistons",
+            "city": "Detroit",
+            "abbreviation": "DET",
+            "conference": "East",
+            "division": "Central",
+            "arena": "Little Caesars Arena",
+            "prestige": 65,
+            "market_size": "medium",
+            "owner": {
+                "name": "Tom Gores",
+                "tax_willingness": 0.55,
+                "spending_aggressiveness": 0.55,
+                "patience": 0.70,
+                "ambition": 0.60,
+                "will_tank": true
+            }
+        },
+        {
+            "id": "IND",
+            "full_name": "Indiana Pacers",
+            "city": "Indianapolis",
+            "abbreviation": "IND",
+            "conference": "East",
+            "division": "Central",
+            "arena": "Gainbridge Fieldhouse",
+            "prestige": 68,
+            "market_size": "medium",
+            "owner": {
+                "name": "Herb Simon",
+                "tax_willingness": 0.40,
+                "spending_aggressiveness": 0.45,
+                "patience": 0.75,
+                "ambition": 0.60,
+                "will_tank": false
+            }
+        },
+        {
+            "id": "MIL",
+            "full_name": "Milwaukee Bucks",
+            "city": "Milwaukee",
+            "abbreviation": "MIL",
+            "conference": "East",
+            "division": "Central",
+            "arena": "Fiserv Forum",
+            "prestige": 78,
+            "market_size": "small",
+            "owner": {
+                "name": "Marc Lasry",
+                "tax_willingness": 0.85,
+                "spending_aggressiveness": 0.80,
+                "patience": 0.45,
+                "ambition": 0.90,
+                "will_tank": false
+            }
+        },
+
+        {
+            "id": "ATL",
+            "full_name": "Atlanta Hawks",
+            "city": "Atlanta",
+            "abbreviation": "ATL",
+            "conference": "East",
+            "division": "Southeast",
+            "arena": "State Farm Arena",
+            "prestige": 65,
+            "market_size": "medium",
+            "owner": {
+                "name": "Tony Ressler",
+                "tax_willingness": 0.60,
+                "spending_aggressiveness": 0.65,
+                "patience": 0.55,
+                "ambition": 0.75,
+                "will_tank": false
+            }
+        },
+        {
+            "id": "CHA",
+            "full_name": "Charlotte Hornets",
+            "city": "Charlotte",
+            "abbreviation": "CHA",
+            "conference": "East",
+            "division": "Southeast",
+            "arena": "Spectrum Center",
+            "prestige": 55,
+            "market_size": "medium",
+            "owner": {
+                "name": "Michael Jordan",
+                "tax_willingness": 0.50,
+                "spending_aggressiveness": 0.50,
+                "patience": 0.60,
+                "ambition": 0.70,
+                "will_tank": false
+            }
+        },
+        {
+            "id": "MIA",
+            "full_name": "Miami Heat",
+            "city": "Miami",
+            "abbreviation": "MIA",
+            "conference": "East",
+            "division": "Southeast",
+            "arena": "Kaseya Center",
+            "prestige": 85,
+            "market_size": "large",
+            "owner": {
+                "name": "Micky Arison",
+                "tax_willingness": 0.80,
+                "spending_aggressiveness": 0.75,
+                "patience": 0.50,
+                "ambition": 0.90,
+                "will_tank": false
+            }
+        },
+        {
+            "id": "ORL",
+            "full_name": "Orlando Magic",
+            "city": "Orlando",
+            "abbreviation": "ORL",
+            "conference": "East",
+            "division": "Southeast",
+            "arena": "Kia Center",
+            "prestige": 60,
+            "market_size": "medium",
+            "owner": {
+                "name": "Dan DeVos",
+                "tax_willingness": 0.45,
+                "spending_aggressiveness": 0.50,
+                "patience": 0.70,
+                "ambition": 0.65,
+                "will_tank": false
+            }
+        },
+        {
+            "id": "WAS",
+            "full_name": "Washington Wizards",
+            "city": "Washington",
+            "abbreviation": "WAS",
+            "conference": "East",
+            "division": "Southeast",
+            "arena": "Capital One Arena",
+            "prestige": 62,
+            "market_size": "large",
+            "owner": {
+                "name": "Ted Leonsis",
+                "tax_willingness": 0.60,
+                "spending_aggressiveness": 0.60,
+                "patience": 0.55,
+                "ambition": 0.70,
+                "will_tank": true
+            }
+        },
+
+        {
+            "id": "DEN",
+            "full_name": "Denver Nuggets",
+            "city": "Denver",
+            "abbreviation": "DEN",
+            "conference": "West",
+            "division": "Northwest",
+            "arena": "Ball Arena",
+            "prestige": 80,
+            "market_size": "medium",
+            "owner": {
+                "name": "Stan Kroenke",
+                "tax_willingness": 0.70,
+                "spending_aggressiveness": 0.70,
+                "patience": 0.65,
+                "ambition": 0.85,
+                "will_tank": false
+            }
+        },
+        {
+            "id": "MIN",
+            "full_name": "Minnesota Timberwolves",
+            "city": "Minneapolis",
+            "abbreviation": "MIN",
+            "conference": "West",
+            "division": "Northwest",
+            "arena": "Target Center",
+            "prestige": 62,
+            "market_size": "medium",
+            "owner": {
+                "name": "Glen Taylor",
+                "tax_willingness": 0.55,
+                "spending_aggressiveness": 0.55,
+                "patience": 0.60,
+                "ambition": 0.70,
+                "will_tank": false
+            }
+        },
+        {
+            "id": "OKC",
+            "full_name": "Oklahoma City Thunder",
+            "city": "Oklahoma City",
+            "abbreviation": "OKC",
+            "conference": "West",
+            "division": "Northwest",
+            "arena": "Paycom Center",
+            "prestige": 68,
+            "market_size": "small",
+            "owner": {
+                "name": "Clay Bennett",
+                "tax_willingness": 0.50,
+                "spending_aggressiveness": 0.55,
+                "patience": 0.80,
+                "ambition": 0.70,
+                "will_tank": false
+            }
+        },
+        {
+            "id": "POR",
+            "full_name": "Portland Trail Blazers",
+            "city": "Portland",
+            "abbreviation": "POR",
+            "conference": "West",
+            "division": "Northwest",
+            "arena": "Moda Center",
+            "prestige": 70,
+            "market_size": "small",
+            "owner": {
+                "name": "Jody Allen",
+                "tax_willingness": 0.65,
+                "spending_aggressiveness": 0.60,
+                "patience": 0.65,
+                "ambition": 0.70,
+                "will_tank": true
+            }
+        },
+        {
+            "id": "UTA",
+            "full_name": "Utah Jazz",
+            "city": "Salt Lake City",
+            "abbreviation": "UTA",
+            "conference": "West",
+            "division": "Northwest",
+            "arena": "Delta Center",
+            "prestige": 68,
+            "market_size": "small",
+            "owner": {
+                "name": "Ryan Smith",
+                "tax_willingness": 0.60,
+                "spending_aggressiveness": 0.60,
+                "patience": 0.75,
+                "ambition": 0.65,
+                "will_tank": true
+            }
+        },
+
+        {
+            "id": "GSW",
+            "full_name": "Golden State Warriors",
+            "city": "San Francisco",
+            "abbreviation": "GSW",
+            "conference": "West",
+            "division": "Pacific",
+            "arena": "Chase Center",
+            "prestige": 95,
+            "market_size": "large",
+            "owner": {
+                "name": "Joe Lacob",
+                "tax_willingness": 0.95,
+                "spending_aggressiveness": 0.90,
+                "patience": 0.40,
+                "ambition": 0.95,
+                "will_tank": false
+            }
+        },
+        {
+            "id": "LAC",
+            "full_name": "Los Angeles Clippers",
+            "city": "Los Angeles",
+            "abbreviation": "LAC",
+            "conference": "West",
+            "division": "Pacific",
+            "arena": "Intuit Dome",
+            "prestige": 78,
+            "market_size": "large",
+            "owner": {
+                "name": "Steve Ballmer",
+                "tax_willingness": 1.00,
+                "spending_aggressiveness": 0.95,
+                "patience": 0.35,
+                "ambition": 0.95,
+                "will_tank": false
+            }
+        },
+        {
+            "id": "LAL",
+            "full_name": "Los Angeles Lakers",
+            "city": "Los Angeles",
+            "abbreviation": "LAL",
+            "conference": "West",
+            "division": "Pacific",
+            "arena": "Crypto.com Arena",
+            "prestige": 98,
+            "market_size": "large",
+            "owner": {
+                "name": "Jeanie Buss",
+                "tax_willingness": 0.85,
+                "spending_aggressiveness": 0.80,
+                "patience": 0.40,
+                "ambition": 0.95,
+                "will_tank": false
+            }
+        },
+        {
+            "id": "PHX",
+            "full_name": "Phoenix Suns",
+            "city": "Phoenix",
+            "abbreviation": "PHX",
+            "conference": "West",
+            "division": "Pacific",
+            "arena": "Footprint Center",
+            "prestige": 72,
+            "market_size": "large",
+            "owner": {
+                "name": "Mat Ishbia",
+                "tax_willingness": 0.90,
+                "spending_aggressiveness": 0.90,
+                "patience": 0.30,
+                "ambition": 0.95,
+                "will_tank": false
+            }
+        },
+        {
+            "id": "SAC",
+            "full_name": "Sacramento Kings",
+            "city": "Sacramento",
+            "abbreviation": "SAC",
+            "conference": "West",
+            "division": "Pacific",
+            "arena": "Golden 1 Center",
+            "prestige": 58,
+            "market_size": "medium",
+            "owner": {
+                "name": "Vivek Ranadive",
+                "tax_willingness": 0.55,
+                "spending_aggressiveness": 0.60,
+                "patience": 0.45,
+                "ambition": 0.75,
+                "will_tank": false
+            }
+        },
+
+        {
+            "id": "DAL",
+            "full_name": "Dallas Mavericks",
+            "city": "Dallas",
+            "abbreviation": "DAL",
+            "conference": "West",
+            "division": "Southwest",
+            "arena": "American Airlines Center",
+            "prestige": 80,
+            "market_size": "large",
+            "owner": {
+                "name": "Mark Cuban",
+                "tax_willingness": 0.85,
+                "spending_aggressiveness": 0.80,
+                "patience": 0.50,
+                "ambition": 0.90,
+                "will_tank": false
+            }
+        },
+        {
+            "id": "HOU",
+            "full_name": "Houston Rockets",
+            "city": "Houston",
+            "abbreviation": "HOU",
+            "conference": "West",
+            "division": "Southwest",
+            "arena": "Toyota Center",
+            "prestige": 78,
+            "market_size": "large",
+            "owner": {
+                "name": "Tilman Fertitta",
+                "tax_willingness": 0.60,
+                "spending_aggressiveness": 0.65,
+                "patience": 0.70,
+                "ambition": 0.75,
+                "will_tank": false
+            }
+        },
+        {
+            "id": "MEM",
+            "full_name": "Memphis Grizzlies",
+            "city": "Memphis",
+            "abbreviation": "MEM",
+            "conference": "West",
+            "division": "Southwest",
+            "arena": "FedExForum",
+            "prestige": 65,
+            "market_size": "small",
+            "owner": {
+                "name": "Robert Pera",
+                "tax_willingness": 0.55,
+                "spending_aggressiveness": 0.55,
+                "patience": 0.65,
+                "ambition": 0.70,
+                "will_tank": false
+            }
+        },
+        {
+            "id": "NOP",
+            "full_name": "New Orleans Pelicans",
+            "city": "New Orleans",
+            "abbreviation": "NOP",
+            "conference": "West",
+            "division": "Southwest",
+            "arena": "Smoothie King Center",
+            "prestige": 62,
+            "market_size": "medium",
+            "owner": {
+                "name": "Gayle Benson",
+                "tax_willingness": 0.55,
+                "spending_aggressiveness": 0.55,
+                "patience": 0.65,
+                "ambition": 0.70,
+                "will_tank": false
+            }
+        },
+        {
+            "id": "SAS",
+            "full_name": "San Antonio Spurs",
+            "city": "San Antonio",
+            "abbreviation": "SAS",
+            "conference": "West",
+            "division": "Southwest",
+            "arena": "Frost Bank Center",
+            "prestige": 90,
+            "market_size": "medium",
+            "owner": {
+                "name": "Peter Holt",
+                "tax_willingness": 0.55,
+                "spending_aggressiveness": 0.60,
+                "patience": 0.85,
+                "ambition": 0.75,
+                "will_tank": false
+            }
+        }
+    ]
+}

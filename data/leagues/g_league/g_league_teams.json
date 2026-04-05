@@ -1,0 +1,260 @@
+{
+    "league_id": "g_league",
+    "league_name": "NBA G League",
+
+    "salary_scale": {
+        "annual_salary": 40000,
+        "contract_years": 1,
+        "notes": "All G League players on flat 1-year deals. Two-way contracts handled at NBA level."
+    },
+
+    "season_structure": {
+        "games_per_season": 50,
+        "roster_max": 12,
+        "roster_min": 10,
+        "playoff_teams": 10
+    },
+
+    "teams": [
+        {
+            "id": "ME",
+            "full_name": "Maine Celtics",
+            "city": "Portland",
+            "abbreviation": "ME",
+            "nba_affiliate_id": "BOS",
+            "arena": "Cross Insurance Arena"
+        },
+        {
+            "id": "LI",
+            "full_name": "Long Island Nets",
+            "city": "Long Island",
+            "abbreviation": "LI",
+            "nba_affiliate_id": "BKN",
+            "arena": "Nassau Veterans Memorial Coliseum"
+        },
+        {
+            "id": "WCH",
+            "full_name": "Westchester Knicks",
+            "city": "Westchester",
+            "abbreviation": "WCH",
+            "nba_affiliate_id": "NYK",
+            "arena": "Westchester County Center"
+        },
+        {
+            "id": "DEL",
+            "full_name": "Delaware Blue Coats",
+            "city": "Wilmington",
+            "abbreviation": "DEL",
+            "nba_affiliate_id": "PHI",
+            "arena": "Chase Fieldhouse"
+        },
+        {
+            "id": "R9",
+            "full_name": "Raptors 905",
+            "city": "Mississauga",
+            "abbreviation": "R9",
+            "nba_affiliate_id": "TOR",
+            "arena": "Paramount Fine Foods Centre"
+        },
+        {
+            "id": "WCB",
+            "full_name": "Windy City Bulls",
+            "city": "Hoffman Estates",
+            "abbreviation": "WCB",
+            "nba_affiliate_id": "CHI",
+            "arena": "NOW Arena"
+        },
+        {
+            "id": "CC",
+            "full_name": "Cleveland Charge",
+            "city": "Cleveland",
+            "abbreviation": "CC",
+            "nba_affiliate_id": "CLE",
+            "arena": "Rocket Mortgage FieldHouse"
+        },
+        {
+            "id": "MCC",
+            "full_name": "Motor City Cruise",
+            "city": "Detroit",
+            "abbreviation": "MCC",
+            "nba_affiliate_id": "DET",
+            "arena": "Wayne State University Fieldhouse"
+        },
+        {
+            "id": "FW",
+            "full_name": "Fort Wayne Mad Ants",
+            "city": "Fort Wayne",
+            "abbreviation": "FW",
+            "nba_affiliate_id": "IND",
+            "arena": "Memorial Coliseum"
+        },
+        {
+            "id": "WIS",
+            "full_name": "Wisconsin Herd",
+            "city": "Oshkosh",
+            "abbreviation": "WIS",
+            "nba_affiliate_id": "MIL",
+            "arena": "Oshkosh Arena"
+        },
+        {
+            "id": "CP",
+            "full_name": "College Park Skyhawks",
+            "city": "College Park",
+            "abbreviation": "CP",
+            "nba_affiliate_id": "ATL",
+            "arena": "Gateway Center Arena"
+        },
+        {
+            "id": "GBO",
+            "full_name": "Greensboro Swarm",
+            "city": "Greensboro",
+            "abbreviation": "GBO",
+            "nba_affiliate_id": "CHA",
+            "arena": "Greensboro Coliseum"
+        },
+        {
+            "id": "SF",
+            "full_name": "Sioux Falls Skyforce",
+            "city": "Sioux Falls",
+            "abbreviation": "SF",
+            "nba_affiliate_id": "MIA",
+            "arena": "Sanford Pentagon"
+        },
+        {
+            "id": "LAK",
+            "full_name": "Lakeland Magic",
+            "city": "Lakeland",
+            "abbreviation": "LAK",
+            "nba_affiliate_id": "ORL",
+            "arena": "RP Funding Center"
+        },
+        {
+            "id": "CGO",
+            "full_name": "Capital City Go-Go",
+            "city": "Washington",
+            "abbreviation": "CGO",
+            "nba_affiliate_id": "WAS",
+            "arena": "Entertainment and Sports Arena"
+        },
+        {
+            "id": "GRG",
+            "full_name": "Grand Rapids Gold",
+            "city": "Grand Rapids",
+            "abbreviation": "GRG",
+            "nba_affiliate_id": "DEN",
+            "arena": "Van Andel Arena"
+        },
+        {
+            "id": "IOW",
+            "full_name": "Iowa Wolves",
+            "city": "Des Moines",
+            "abbreviation": "IOW",
+            "nba_affiliate_id": "MIN",
+            "arena": "Wells Fargo Arena"
+        },
+        {
+            "id": "OKB",
+            "full_name": "Oklahoma City Blue",
+            "city": "Oklahoma City",
+            "abbreviation": "OKB",
+            "nba_affiliate_id": "OKC",
+            "arena": "Paycom Center"
+        },
+        {
+            "id": "OSC",
+            "full_name": "Osceola Magic",
+            "city": "Kissimmee",
+            "abbreviation": "OSC",
+            "nba_affiliate_id": "POR",
+            "arena": "Osceola Heritage Park"
+        },
+        {
+            "id": "SLC",
+            "full_name": "Salt Lake City Stars",
+            "city": "Salt Lake City",
+            "abbreviation": "SLC",
+            "nba_affiliate_id": "UTA",
+            "arena": "Delta Center"
+        },
+        {
+            "id": "SCW",
+            "full_name": "Santa Cruz Warriors",
+            "city": "Santa Cruz",
+            "abbreviation": "SCW",
+            "nba_affiliate_id": "GSW",
+            "arena": "Kaiser Permanente Arena"
+        },
+        {
+            "id": "AC",
+            "full_name": "Agua Caliente Clippers",
+            "city": "Ontario",
+            "abbreviation": "AC",
+            "nba_affiliate_id": "LAC",
+            "arena": "Toyota Arena"
+        },
+        {
+            "id": "SB",
+            "full_name": "South Bay Lakers",
+            "city": "El Segundo",
+            "abbreviation": "SB",
+            "nba_affiliate_id": "LAL",
+            "arena": "UCLA Health Training Center"
+        },
+        {
+            "id": "NAZ",
+            "full_name": "Northern Arizona Suns",
+            "city": "Prescott Valley",
+            "abbreviation": "NAZ",
+            "nba_affiliate_id": "PHX",
+            "arena": "Findlay Toyota Center"
+        },
+        {
+            "id": "STK",
+            "full_name": "Stockton Kings",
+            "city": "Stockton",
+            "abbreviation": "STK",
+            "nba_affiliate_id": "SAC",
+            "arena": "Stockton Arena"
+        },
+        {
+            "id": "TEX",
+            "full_name": "Texas Legends",
+            "city": "Frisco",
+            "abbreviation": "TEX",
+            "nba_affiliate_id": "DAL",
+            "arena": "Comerica Center"
+        },
+        {
+            "id": "RGV",
+            "full_name": "Rio Grande Valley Vipers",
+            "city": "Edinburg",
+            "abbreviation": "RGV",
+            "nba_affiliate_id": "HOU",
+            "arena": "Bert Ogden Arena"
+        },
+        {
+            "id": "MH",
+            "full_name": "Memphis Hustle",
+            "city": "Memphis",
+            "abbreviation": "MH",
+            "nba_affiliate_id": "MEM",
+            "arena": "Landers Center"
+        },
+        {
+            "id": "BHM",
+            "full_name": "Birmingham Squadron",
+            "city": "Birmingham",
+            "abbreviation": "BHM",
+            "nba_affiliate_id": "NOP",
+            "arena": "Legacy Arena"
+        },
+        {
+            "id": "AUS",
+            "full_name": "Austin Spurs",
+            "city": "Austin",
+            "abbreviation": "AUS",
+            "nba_affiliate_id": "SAS",
+            "arena": "Moody Center"
+        }
+    ]
+}

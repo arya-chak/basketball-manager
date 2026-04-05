@@ -1,0 +1,229 @@
+{
+    "league_id": "nba",
+
+    "expectation_tiers": {
+        "title_contender": {
+            "roster_rank_range": [1, 4],
+            "target_score_min": 5,
+            "target_score_max": 8,
+            "description": "Win the championship"
+        },
+        "deep_run": {
+            "roster_rank_range": [5, 10],
+            "target_score_min": 4,
+            "target_score_max": 6,
+            "description": "Conference finals or better"
+        },
+        "playoff_team": {
+            "roster_rank_range": [11, 16],
+            "target_score_min": 2,
+            "target_score_max": 4,
+            "description": "Make the playoffs (top 6 seed)"
+        },
+        "play_in": {
+            "roster_rank_range": [17, 22],
+            "target_score_min": 0,
+            "target_score_max": 2,
+            "description": "Qualify for play-in tournament (7-10 seed)"
+        },
+        "development": {
+            "roster_rank_range": [23, 27],
+            "target_score_min": -1,
+            "target_score_max": 1,
+            "description": "Win 30-40 games, develop youth"
+        },
+        "tank": {
+            "roster_rank_range": [28, 30],
+            "target_score_min": -2,
+            "target_score_max": 0,
+            "description": "Lottery positioning — rebuilding for draft"
+        }
+    },
+
+    "owner_ambition_modifier": {
+        "high": {
+            "ambition_range": [0.80, 1.00],
+            "tier_shift": +1,
+            "description": "Owner pushes expectation up one tier"
+        },
+        "neutral": {
+            "ambition_range": [0.40, 0.79],
+            "tier_shift": 0,
+            "description": "Owner accepts engine baseline"
+        },
+        "patient": {
+            "ambition_range": [0.00, 0.39],
+            "tier_shift": -1,
+            "description": "Owner pushes expectation down one tier (patient rebuilder)"
+        }
+    },
+
+    "performance_scoring": {
+        "regular_season": {
+            "wins_60_plus":  3,
+            "wins_50_to_59": 2,
+            "wins_40_to_49": 1,
+            "wins_30_to_39": 0,
+            "wins_20_to_29": -1,
+            "wins_under_20": -2
+        },
+        "postseason": {
+            "missed_play_in":       -3,
+            "play_in_eliminated":   -1,
+            "first_round_exit":      0,
+            "second_round_exit":    +1,
+            "conference_finals":    +2,
+            "finals_appearance":    +3,
+            "championship":         +5
+        },
+        "score_range": {
+            "min": -5,
+            "max": 8
+        }
+    },
+
+    "verdict_thresholds": {
+        "overachieve":              { "gap_vs_target_min": 2  },
+        "meet":                     { "gap_vs_target_min": -1, "gap_vs_target_max": 1 },
+        "underachieve_slight":      { "gap_vs_target": -1 },
+        "underachieve_significant": { "gap_vs_target_min": -2, "gap_vs_target_max": -3 },
+        "catastrophic":             { "gap_vs_target_max": -4 }
+    },
+
+    "pressure_points": {
+        "overachieve":              -3,
+        "meet":                     -1,
+        "underachieve_slight":      +2,
+        "underachieve_significant": +4,
+        "catastrophic":             +7,
+        "championship_reset":        0,
+        "finals_appearance_halve":  true
+    },
+
+    "firing_threshold": {
+        "base": 8,
+        "patience_formula": "base + round(patience * 8)",
+        "patience_range": {
+            "min_threshold": 8,
+            "max_threshold": 16
+        },
+        "notes": "patience 0.0 fires at 8, patience 0.5 fires at 12, patience 1.0 fires at 16"
+    },
+
+    "pressure_carryover": {
+        "title_contender": {
+            "carryover": "full",
+            "notes": "Franchise in crisis — full pressure transfers to incoming coach"
+        },
+        "deep_run": {
+            "carryover": "full",
+            "notes": "High expectations remain — full pressure transfers"
+        },
+        "playoff_team": {
+            "carryover": "half",
+            "notes": "Half pressure carries (rounded down)"
+        },
+        "play_in": {
+            "carryover": "none",
+            "notes": "Full reset — new coach gets clean slate"
+        },
+        "development": {
+            "carryover": "none",
+            "notes": "Full reset"
+        },
+        "tank": {
+            "carryover": "none",
+            "notes": "Full reset"
+        }
+    },
+
+    "incoming_coach_reputation_relief": {
+        "formula": "floor(incoming_reputation / 25)",
+        "table": [
+            { "reputation_min": 0,  "reputation_max": 24,  "pressure_buffer": 0 },
+            { "reputation_min": 25, "reputation_max": 49,  "pressure_buffer": 1 },
+            { "reputation_min": 50, "reputation_max": 74,  "pressure_buffer": 2 },
+            { "reputation_min": 75, "reputation_max": 99,  "pressure_buffer": 3 },
+            { "reputation_min": 100,"reputation_max": 100, "pressure_buffer": 4 }
+        ],
+        "notes": "Permanently raises firing threshold for this coach at this team only. Not a pressure reduction."
+    },
+
+    "ongoing_grace": {
+        "reputation_threshold": 75,
+        "seasons_applies": 2,
+        "pressure_modifier": -1,
+        "condition": "Applied to any underachieve verdict in first 2 seasons if coach reputation above threshold"
+    },
+
+    "season_modifiers": {
+        "star_player_injury": {
+            "tier_shift": -1,
+            "condition": "Key player (STAR or SUPERSTAR tier) misses 30+ games",
+            "notes": "Expectation drops one tier for the season"
+        },
+        "blockbuster_trade_acquisition": {
+            "tier_shift": +1,
+            "condition": "Team acquires a STAR or SUPERSTAR at or after training camp",
+            "notes": "Expectation rises one tier for the season"
+        },
+        "new_coach_first_season": {
+            "underachieve_threshold_loosened": 1,
+            "notes": "First season grace — underachieve threshold requires 1 extra point to trigger"
+        },
+        "recent_championship": {
+            "seasons_applies": 3,
+            "overachieve_threshold_loosened": 1,
+            "notes": "Coach given more credit for overachieving if won title in last 3 years"
+        },
+        "tank_mode": {
+            "owner_pressure_immune": true,
+            "notes": "Owner will not accumulate pressure during an explicit tank season"
+        }
+    },
+
+    "superstar_title_timeline": {
+        "important_matches_threshold_standard": 14,
+        "important_matches_threshold_urgent":   17,
+        "conditions": {
+            "standard": {
+                "threshold": 14,
+                "missed_seasons_to_trigger": 2,
+                "description": "Requests trade after 2 consecutive missed expectations"
+            },
+            "urgent": {
+                "threshold": 17,
+                "missed_seasons_to_trigger": 1,
+                "description": "Requests trade after just 1 missed expectation season"
+            }
+        },
+        "demand_levels": {
+            "unhappy": {
+                "gap_trigger": -1,
+                "effect": "Player requests meeting with front office. Reputation warning issued to coach. No public demand.",
+                "inbox_category": "player_relations"
+            },
+            "trade_request": {
+                "gap_trigger": -2,
+                "consecutive_seasons": 1,
+                "effect": "Formal trade request filed. Team must deal within one offseason or player morale penalty applies.",
+                "morale_penalty": {
+                    "mental_attr_reduction": 3,
+                    "attrs_affected": ["composure", "teamwork", "determination"]
+                },
+                "inbox_category": "player_relations"
+            },
+            "demand": {
+                "gap_trigger": -4,
+                "effect": "Public demand. Trade value reduced — other teams know team must move player. Locker room morale event fires for all players.",
+                "locker_room_effect": {
+                    "mental_attr_reduction": 1,
+                    "attrs_affected": ["composure", "determination"],
+                    "applies_to": "all_teammates"
+                },
+                "inbox_category": "player_relations"
+            }
+        },
+        "notes": "important_matches is a hidden attribute — coach never sees the exact threshold, only the consequences"
+    }
+}

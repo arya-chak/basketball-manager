@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b44lyjoxlofn4"]
+
+[sub_resource type="GDScript" id="GDScript_nxiqb"]
+script/source = "extends Node
+
+func _ready():
+	print(\"Date: \", WorldState.get_date_string())
+	Clock.advance_day()
+	print(\"Next day: \", WorldState.get_date_string())
+	print(\"All autoloads working!\")
+"
+
+[node name="Node" type="Node" unique_id=775685098]
+script = SubResource("GDScript_nxiqb")

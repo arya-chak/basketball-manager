@@ -1,0 +1,74 @@
+{
+    "league_id": "nba",
+    "league_name": "National Basketball Association",
+
+    "season_structure": {
+        "games_per_season": 82,
+        "roster_max": 15,
+        "roster_min": 14,
+        "two_way_slots": 2,
+        "active_gameday": 13
+    },
+
+    "calendar": {
+        "training_camp_start":    { "month": 9,  "day": 25 },
+        "preseason_start":        { "month": 10, "day": 4  },
+        "regular_season_start":   { "month": 10, "day": 20 },
+        "trade_deadline":         { "month": 2,  "day": 6  },
+        "regular_season_end":     { "month": 4,  "day": 10 },
+        "play_in_start":          { "month": 4,  "day": 13 },
+        "playoffs_start":         { "month": 4,  "day": 19 },
+        "finals_end_latest":      { "month": 6,  "day": 22 },
+        "draft":                  { "month": 6,  "day": 25 },
+        "free_agency_start":      { "month": 7,  "day": 1  },
+        "moratorium_end":         { "month": 7,  "day": 6  },
+        "cap_figure_announced":   { "month": 7,  "day": 1  }
+    },
+
+    "regular_season_game_days": [1, 2, 4, 6],
+
+    "playoff_format": {
+        "total_teams": 16,
+        "teams_per_conference": 8,
+        "play_in_seeds": [7, 8, 9, 10],
+        "direct_playoff_seeds": [1, 2, 3, 4, 5, 6],
+        "rounds": [
+            {
+                "name": "First Round",
+                "series_length": 7,
+                "matchups": "1v8, 2v7, 3v6, 4v5"
+            },
+            {
+                "name": "Conference Semifinals",
+                "series_length": 7,
+                "matchups": "winners of first round"
+            },
+            {
+                "name": "Conference Finals",
+                "series_length": 7,
+                "matchups": "winners of semifinals"
+            },
+            {
+                "name": "NBA Finals",
+                "series_length": 7,
+                "matchups": "East champion vs West champion"
+            }
+        ],
+        "home_court_advantage": "higher seed"
+    },
+
+    "play_in_format": {
+        "game_1": "7 seed vs 8 seed — winner gets 7th playoff spot",
+        "game_2": "9 seed vs 10 seed — loser eliminated",
+        "game_3": "loser of game 1 vs winner of game 2 — winner gets 8th playoff spot"
+    },
+
+    "draft_format": {
+        "rounds": 2,
+        "picks_per_round": 30,
+        "total_picks": 60,
+        "lottery_teams": 14,
+        "lottery_picks": 4,
+        "lottery_odds_method": "weighted_by_record"
+    }
+}

@@ -1,0 +1,53 @@
+{
+    "league_id": "nba",
+
+    "cap_growth": {
+        "annual_base_rate": 0.06,
+        "annual_variance": 0.02,
+        "notes": "Each offseason: new_cap = current_cap * (1 + base_rate + random_in(-variance, +variance))"
+    },
+
+    "salary_inflation": {
+        "veteran_minimum_growth_rate": 0.05,
+        "free_agent_ask_inflation_rate": 0.05,
+        "notes": "Average FA asking price grows independently of cap to model market inflation"
+    },
+
+    "tv_deal_spike": {
+        "cycle_years_min": 8,
+        "cycle_years_max": 10,
+        "cap_jump_pct_min": 0.20,
+        "cap_jump_pct_max": 0.30,
+        "notes": "Spike year is randomized at game start within the cycle window. Applied once per cycle then a new cycle begins.",
+
+        "warning_events": {
+            "two_seasons_before": {
+                "message_template": "The NBA's current television deal expires in 2 years. League sources expect significant revenue growth when a new deal is signed. Analysts project a notable salary cap increase.",
+                "specificity": "vague",
+                "inbox_category": "league_news"
+            },
+            "one_season_before": {
+                "message_template": "The NBA has entered formal negotiations with broadcast partners. Early reports suggest the new TV deal could increase league revenue by {min_pct}–{max_pct}%. The salary cap is expected to rise significantly next offseason.",
+                "specificity": "range",
+                "inbox_category": "league_news"
+            },
+            "spike_offseason": {
+                "message_template": "The NBA has finalized a landmark television deal. The salary cap will increase from ${old_cap} to ${new_cap} next season — a jump of {jump_pct}%. Expect a highly active free agency period.",
+                "specificity": "exact",
+                "inbox_category": "league_news"
+            }
+        },
+
+        "world_state_keys": {
+            "spike_year": "tv_spike_year",
+            "current_cycle_start": "tv_cycle_start_year",
+            "notes": "Stored in WorldState at game start. Clock.gd checks these each new season to fire warning events."
+        }
+    },
+
+    "world_state_hooks": {
+        "new_season_check": "Clock.gd fires _check_tv_deal_warnings() at TRAINING_CAMP_START each year",
+        "spike_application": "Applied during cap_figure_announced date in offseason",
+        "notes": "When news engine is built, warning events route through it. Until then, they post directly via EventBus.notification_posted."
+    }
+}

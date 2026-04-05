@@ -1,0 +1,211 @@
+{
+    "league_id": "nba",
+
+    "cap": {
+        "starting_value": 136000000,
+        "tax_threshold_pct_above_cap": 0.10,
+        "first_apron_pct_above_tax":   0.053,
+        "second_apron_pct_above_tax":  0.105
+    },
+
+    "exceptions": {
+        "full_mle": {
+            "pct_of_cap": 0.090,
+            "max_years": 4,
+            "available_to": "teams_over_cap_under_tax",
+            "notes": "Cannot be used if team is over first apron"
+        },
+        "tax_mle": {
+            "pct_of_cap": 0.050,
+            "max_years": 3,
+            "available_to": "teams_over_tax_threshold",
+            "notes": "Available to teams between tax threshold and first apron"
+        },
+        "bae": {
+            "pct_of_cap": 0.030,
+            "max_years": 2,
+            "available_to": "teams_over_cap",
+            "cooldown_years": 1,
+            "notes": "Cannot be used in back-to-back seasons. Unavailable above first apron."
+        },
+        "veteran_minimum": {
+            "tiers": {
+                "rookie": {
+                    "experience_years": [0, 2],
+                    "pct_of_cap": 0.018
+                },
+                "veteran": {
+                    "experience_years": [3, 6],
+                    "pct_of_cap": 0.028
+                },
+                "senior": {
+                    "experience_years": [7, 99],
+                    "pct_of_cap": 0.038
+                }
+            },
+            "notes": "Team only counts 1.8% against cap regardless of tier when signing above minimum"
+        }
+    },
+
+    "max_contracts": {
+        "standard_max": {
+            "experience_years": [0, 5],
+            "pct_of_cap_per_year": 0.25,
+            "max_years": 4,
+            "notes": "0-5 years experience"
+        },
+        "mid_max": {
+            "experience_years": [6, 9],
+            "pct_of_cap_per_year": 0.30,
+            "max_years": 5,
+            "notes": "6-9 years experience"
+        },
+        "supermax": {
+            "experience_years": [10, 99],
+            "pct_of_cap_per_year": 0.35,
+            "max_years": 5,
+            "notes": "10+ years OR designated veteran criteria — All-NBA, MVP, DPOY in prior 3 seasons"
+        },
+        "designated_veteran_criteria": [
+            "All-NBA first, second, or third team selection",
+            "MVP award",
+            "Defensive Player of the Year award"
+        ]
+    },
+
+    "rookie_scale": {
+        "structure": {
+            "guaranteed_years": 2,
+            "team_option_years": 2,
+            "total_years": 4,
+            "annual_escalation_pct": 0.08
+        },
+        "slots": [
+            { "pick": 1,  "pct_of_cap": 0.090 },
+            { "pick": 2,  "pct_of_cap": 0.086 },
+            { "pick": 3,  "pct_of_cap": 0.082 },
+            { "pick": 4,  "pct_of_cap": 0.078 },
+            { "pick": 5,  "pct_of_cap": 0.074 },
+            { "pick": 6,  "pct_of_cap": 0.068 },
+            { "pick": 7,  "pct_of_cap": 0.063 },
+            { "pick": 8,  "pct_of_cap": 0.059 },
+            { "pick": 9,  "pct_of_cap": 0.055 },
+            { "pick": 10, "pct_of_cap": 0.052 },
+            { "pick": 11, "pct_of_cap": 0.049 },
+            { "pick": 12, "pct_of_cap": 0.046 },
+            { "pick": 13, "pct_of_cap": 0.044 },
+            { "pick": 14, "pct_of_cap": 0.042 },
+            { "pick": 15, "pct_of_cap": 0.040 },
+            { "pick": 16, "pct_of_cap": 0.038 },
+            { "pick": 17, "pct_of_cap": 0.036 },
+            { "pick": 18, "pct_of_cap": 0.034 },
+            { "pick": 19, "pct_of_cap": 0.033 },
+            { "pick": 20, "pct_of_cap": 0.032 },
+            { "pick": 21, "pct_of_cap": 0.031 },
+            { "pick": 22, "pct_of_cap": 0.030 },
+            { "pick": 23, "pct_of_cap": 0.029 },
+            { "pick": 24, "pct_of_cap": 0.028 },
+            { "pick": 25, "pct_of_cap": 0.027 },
+            { "pick": 26, "pct_of_cap": 0.026 },
+            { "pick": 27, "pct_of_cap": 0.025 },
+            { "pick": 28, "pct_of_cap": 0.024 },
+            { "pick": 29, "pct_of_cap": 0.023 },
+            { "pick": 30, "pct_of_cap": 0.022 }
+        ],
+        "second_round": {
+            "structure": "veteran_minimum_or_negotiated",
+            "guaranteed_years": 1,
+            "team_option_years": 1,
+            "total_years": 2,
+            "notes": "Second round picks are not on the rookie scale. Teams negotiate within min/max bounds."
+        }
+    },
+
+    "bird_rights": {
+        "full_bird": {
+            "seasons_required": 3,
+            "re_sign_method": "any_amount_up_to_max",
+            "escalation_pct": 0.08,
+            "can_exceed_cap": true
+        },
+        "early_bird": {
+            "seasons_required": 2,
+            "re_sign_method": "up_to_175_pct_of_prior_salary_or_105_pct_of_average",
+            "escalation_pct": 0.08,
+            "can_exceed_cap": true
+        },
+        "non_bird": {
+            "seasons_required": 0,
+            "re_sign_method": "up_to_120_pct_of_prior_salary",
+            "escalation_pct": 0.05,
+            "can_exceed_cap": false
+        },
+        "notes": "Bird rights are lost if player is traded or waived"
+    },
+
+    "contract_escalation": {
+        "bird_eligible_pct": 0.08,
+        "non_bird_pct": 0.05,
+        "rookie_scale_pct": 0.08,
+        "minimum_pct": 0.05,
+        "notes": "Applied annually to each year of a multi-year deal"
+    },
+
+    "luxury_tax": {
+        "brackets": [
+            { "range_start": 0,        "range_end": 5000000,  "rate_per_dollar": 1.50 },
+            { "range_start": 5000000,  "range_end": 10000000, "rate_per_dollar": 1.75 },
+            { "range_start": 10000000, "range_end": 15000000, "rate_per_dollar": 2.50 },
+            { "range_start": 15000000, "range_end": 20000000, "rate_per_dollar": 3.25 },
+            { "range_start": 20000000, "range_end": 25000000, "rate_per_dollar": 3.75 },
+            { "range_start": 25000000, "range_end": 999000000,"rate_per_dollar": 4.25 }
+        ],
+        "repeater_additional_rate": 1.00,
+        "repeater_definition": {
+            "tax_seasons_required": 3,
+            "lookback_seasons": 4,
+            "notes": "Team is a repeater if they paid luxury tax in 3 of the previous 4 seasons"
+        }
+    },
+
+    "trade_rules": {
+        "trade_exception": {
+            "generated": true,
+            "expiry_days": 365,
+            "combinable": false,
+            "notes": "Generated when outgoing salary exceeds incoming salary in a trade"
+        },
+        "salary_matching": {
+            "under_cap_threshold": 1.25,
+            "over_cap_threshold": 1.25,
+            "over_tax_threshold": 1.10,
+            "notes": "Outgoing salary must be within these multiples of incoming salary"
+        },
+        "apron_restrictions": {
+            "first_apron": [
+                "Cannot use trade exception to acquire salary",
+                "Cannot take back more salary than sent in sign-and-trade"
+            ],
+            "second_apron": [
+                "Cannot aggregate contracts in trades",
+                "Cannot take back more salary than sent",
+                "Draft pick restrictions apply"
+            ]
+        }
+    },
+
+    "two_way_contracts": {
+        "slots_per_team": 2,
+        "annual_salary": 600000,
+        "cap_count": false,
+        "nba_days_limit": 50,
+        "notes": "Two-way players split time between NBA and G League. Fixed salary, does not count against cap."
+    },
+
+    "cap_holds": {
+        "unsigned_first_round_pick": "rookie_scale_slot_amount",
+        "unsigned_free_agent_bird":  "prior_year_salary",
+        "unsigned_free_agent_non_bird": "prior_year_salary",
+        "notes": "Cap holds occupy space until player is signed or renounced"
+    }
+}
