@@ -48,8 +48,9 @@ const MAX_OT_PERIODS: int = 3
 # ---------------------------------------------------------------------------
 # Dependencies — instantiated once per MatchEngine instance.
 # ---------------------------------------------------------------------------
-var _possession_sim:  PossessionSim  = PossessionSim.new()
-var _shot_resolver:   ShotResolver   = ShotResolver.new()
+var _possession_sim:  PossessionSim   = PossessionSim.new()
+var _shot_resolver:   ShotResolver    = ShotResolver.new()
+var _commentary:      CommentaryEngine = CommentaryEngine.new()
 var _rotation_mgr:    RotationManager = null   # Instantiated in simulate_game()
 var _rng:             RandomNumberGenerator = RandomNumberGenerator.new()
 
@@ -86,6 +87,7 @@ func simulate_game(
 	_rng.seed             = game_seed
 	_possession_sim.seed_rng(game_seed + 1)
 	_shot_resolver.seed_rng(game_seed + 2)
+	_commentary.seed_rng(game_seed + 3)
 
 	# --- Build starting lineups from depth charts ---
 	var home_five: Array = _build_starting_five(home_roster, home_coach)
@@ -455,10 +457,13 @@ func _merge_possession_result(
 		game = _merge_stat_delta(game, player_id, deltas[player_id])
 
 	# Append play events to play_by_play.
-	# Annotate each event with the running score before appending.
+	# Annotate each event with the running score and commentary text before appending.
 	for event in state.get("play_events", []):
-		event["home_score"] = game["home_score"]
-		event["away_score"] = game["away_score"]
+		event["home_score"]      = game["home_score"]
+		event["away_score"]      = game["away_score"]
+		event["text"]            = _commentary.generate_text(event)
+		event["clock_display"]   = _commentary.format_clock(event.get("clock_seconds", 0))
+		event["quarter_display"] = _commentary.format_quarter(event.get("quarter", 1))
 		game["play_by_play"].append(event)
 
 	# Steal stats — credit steal to the defender who caused the turnover.

@@ -206,20 +206,81 @@ func _create_schema() -> void:
 		)
 	")
 
-	# Coach
+	# Coaches — full entity matching Coach.gd
+	# id = 1 is always the player's coach (is_player_coach = 1)
+	# AI head coaches will occupy higher ids when CoachGenerator is built
 	db.query("
-		CREATE TABLE IF NOT EXISTS coach (
-			id                INTEGER PRIMARY KEY,
-			first_name        TEXT,
-			last_name         TEXT,
-			age               INTEGER,
-			reputation        REAL DEFAULT 20.0,
-			specialty         TEXT,
-			current_team_id   TEXT,
-			seasons_coached   INTEGER DEFAULT 0,
-			career_wins       INTEGER DEFAULT 0,
-			career_losses     INTEGER DEFAULT 0,
-			championships     INTEGER DEFAULT 0
+		CREATE TABLE IF NOT EXISTS coaches (
+			id                      INTEGER PRIMARY KEY,
+			first_name              TEXT    DEFAULT '',
+			last_name               TEXT    DEFAULT '',
+			age                     INTEGER DEFAULT 40,
+			nationality             TEXT    DEFAULT 'American',
+			is_player_coach         INTEGER DEFAULT 0,
+			reputation              INTEGER DEFAULT 0,
+			nba_reputation          INTEGER DEFAULT 0,
+			g_league_reputation     INTEGER DEFAULT 0,
+			career_wins             INTEGER DEFAULT 0,
+			career_losses           INTEGER DEFAULT 0,
+			playoff_appearances     INTEGER DEFAULT 0,
+			championships           INTEGER DEFAULT 0,
+			team_id                 TEXT    DEFAULT '',
+			league_id               TEXT    DEFAULT 'nba',
+			contract_years          INTEGER DEFAULT 0,
+			contract_salary         REAL    DEFAULT 0.0,
+			seasons_at_club         INTEGER DEFAULT 0,
+			offensive_systems       INTEGER DEFAULT 2,
+			defensive_systems       INTEGER DEFAULT 2,
+			player_development      INTEGER DEFAULT 2,
+			scouting                INTEGER DEFAULT 2,
+			motivation              INTEGER DEFAULT 2,
+			tactical_flexibility    INTEGER DEFAULT 2,
+			fitness_conditioning    INTEGER DEFAULT 2,
+			working_with_youth      INTEGER DEFAULT 2,
+			adaptability            INTEGER DEFAULT 2,
+			authority               INTEGER DEFAULT 2,
+			determination           INTEGER DEFAULT 2,
+			people_management       INTEGER DEFAULT 2,
+			motivating              INTEGER DEFAULT 2,
+			preferred_offense       INTEGER DEFAULT 0,
+			preferred_defense       INTEGER DEFAULT 0,
+			pref_pace_target        REAL    DEFAULT 1.0,
+			pref_hunt_mismatches    INTEGER DEFAULT 1,
+			pref_switch_on_screens  INTEGER DEFAULT 0,
+			pref_paint_protection   INTEGER DEFAULT 0,
+			pref_press_full_court   INTEGER DEFAULT 0
+		)
+	")
+
+	# World meta — one row (id = 1) holds persistent WorldState scalars
+	db.query("
+		CREATE TABLE IF NOT EXISTS world_meta (
+			id                    INTEGER PRIMARY KEY DEFAULT 1,
+			current_day           INTEGER DEFAULT 1,
+			current_month         INTEGER DEFAULT 10,
+			current_year          INTEGER DEFAULT 2025,
+			current_season        INTEGER DEFAULT 2025,
+			current_season_stage  TEXT    DEFAULT 'preseason',
+			salary_cap            INTEGER DEFAULT 136000000,
+			tv_spike_year         INTEGER DEFAULT 0,
+			tv_cycle_start_year   INTEGER DEFAULT 0
+		)
+	")
+
+	# Schedule — full season calendar, one row per game
+	db.query("
+		CREATE TABLE IF NOT EXISTS schedule (
+			id            INTEGER PRIMARY KEY AUTOINCREMENT,
+			home_team_id  TEXT    NOT NULL,
+			away_team_id  TEXT    NOT NULL,
+			date_day      INTEGER NOT NULL,
+			date_month    INTEGER NOT NULL,
+			date_year     INTEGER NOT NULL,
+			league_id     TEXT    DEFAULT 'nba',
+			played        INTEGER DEFAULT 0,
+			game_type     TEXT    DEFAULT 'regular',
+			marquee       INTEGER DEFAULT 0,
+			UNIQUE (home_team_id, away_team_id, date_day, date_month, date_year)
 		)
 	")
 
@@ -245,14 +306,17 @@ func close() -> void:
 # ---------------------------------------------------------------------------
 
 func save_player(player: Player) -> int:
+	# INSERT OR REPLACE handles both new players (world gen) and
+	# re-saves (development ticks, injury updates, save_game flush).
 	db.query_with_bindings("
-		INSERT INTO players (
-			first_name, last_name, age, position, tier,
+		INSERT OR REPLACE INTO players (
+			id, first_name, last_name, age, position, tier,
 			team_id, league_id, nationality,
 			is_free_agent, is_draft_prospect, draft_year,
 			primary_skill, secondary_skill
-		) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+		) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 	", [
+		player.id if player.id != -1 else null,
 		player.first_name, player.last_name, player.age,
 		player.get_position_string(), player.get_tier_string(),
 		player.team_id, player.league_id, player.nationality,
@@ -278,14 +342,14 @@ func save_player(player: Player) -> int:
 	var cols_sql = "player_id, " + ", ".join(attr_names)
 	var vals_sql = "?, "         + ", ".join(placeholders)
 	db.query_with_bindings(
-		"INSERT INTO player_attributes (%s) VALUES (%s)" % [cols_sql, vals_sql],
+		"INSERT OR REPLACE INTO player_attributes (%s) VALUES (%s)" % [cols_sql, vals_sql],
 		[new_id] + attr_vals
 	)
 
 	# Potential deltas
 	for attr in player.potential_deltas:
 		db.query_with_bindings(
-			"INSERT INTO potential_deltas (player_id, attribute, delta) VALUES (?, ?, ?)",
+			"INSERT OR REPLACE INTO potential_deltas (player_id, attribute, delta) VALUES (?, ?, ?)",
 			[new_id, attr, player.potential_deltas[attr]]
 		)
 
