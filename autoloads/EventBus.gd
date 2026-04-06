@@ -2,6 +2,9 @@ extends Node
 
 # Match signals
 signal match_simulated(result: Dictionary)
+signal quarter_ended(data: Dictionary)
+signal matchday_complete(result: Dictionary)
+signal regular_season_complete(data: Dictionary)
 
 # Calendar signals
 signal day_advanced(new_date: Dictionary)

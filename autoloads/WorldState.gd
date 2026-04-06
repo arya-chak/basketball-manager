@@ -78,6 +78,13 @@ var league_configs: Dictionary = {}
 
 # ---------------------------------------------------------------------------
 # Coach — the player's avatar
+# Stored as a Dictionary until Coach entity is fully integrated into
+# WorldState as a typed object. Expected keys:
+#   team_id, league_id, offensive_systems, defensive_systems,
+#   tactical_flexibility, motivation, motivating, fitness_conditioning,
+#   preferred_offense, preferred_defense, pref_pace_target,
+#   pref_hunt_mismatches, pref_switch_on_screens, pref_paint_protection,
+#   pref_press_full_court, depth_chart, minutes_targets
 # ---------------------------------------------------------------------------
 
 var coach: Dictionary = {}
@@ -169,6 +176,27 @@ func get_two_way_players(team_id: String) -> Array:
 
 func register_player(player: Player) -> void:
 	all_players[player.id] = player
+
+# ---------------------------------------------------------------------------
+# ROSTER HELPER — used by SeasonScheduler and MatchEngine
+# Returns the full active roster (main roster + two-way) for a team.
+# ---------------------------------------------------------------------------
+
+func get_roster_players(team_id: String) -> Array:
+	var team: Team = get_team(team_id)
+	if team == null:
+		return []
+	var result: Array = []
+	for pid in team.roster_ids:
+		var p: Player = get_player(pid)
+		if p:
+			result.append(p)
+	# Include two-way players — they can play in NBA games (up to 50 days).
+	for pid in team.two_way_ids:
+		var p: Player = get_player(pid)
+		if p:
+			result.append(p)
+	return result
 
 # ---------------------------------------------------------------------------
 # MATCH RESULT — records result in memory and DB, marks standings dirty
